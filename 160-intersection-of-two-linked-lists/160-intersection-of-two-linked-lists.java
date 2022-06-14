@@ -25,9 +25,8 @@ public class Solution {
             ptrTwo = ptrTwo.next;
         }
         
-        int offset = Math.abs(lengthA - lengthB);
-        
         if (lengthA > lengthB) {
+            int offset = Math.abs(lengthA - lengthB);
             for (int i = 0; i < offset; i++) {
                 headA = headA.next;
             }
@@ -39,6 +38,7 @@ public class Solution {
             }
         }
         else {
+            int offset = Math.abs(lengthA - lengthB);
             for (int i = 0; i < offset; i++) {
                 headB = headB.next;
             }
