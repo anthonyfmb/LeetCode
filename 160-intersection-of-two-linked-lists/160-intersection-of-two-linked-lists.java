@@ -17,8 +17,9 @@ public class Solution {
             lengthA++;
             ptrOne = ptrOne.next;
         }
-        int lengthB = 0;
+        
         ListNode ptrTwo = headB;
+        int lengthB = 0;
         while (ptrTwo != null) {
             lengthB++;
             ptrTwo = ptrTwo.next;
