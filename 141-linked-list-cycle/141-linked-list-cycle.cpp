@@ -6,19 +6,20 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        ListNode *slow = head;
         ListNode *fast = head;
+        ListNode *slow = head;
         
-        while (fast != NULL) {
+        while (fast != NULL && fast->next != NULL) {
             slow = slow->next;
-            fast = fast->next;
-            if (fast == NULL) return false;
-            fast = fast->next;
-            if (fast == slow) return true;
-        }
+            fast = fast->next->next;
+            if (slow == fast) return true;
+        } 
         
         return false;
     }
