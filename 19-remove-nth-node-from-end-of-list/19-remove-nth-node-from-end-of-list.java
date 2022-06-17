@@ -19,7 +19,7 @@ class Solution {
         }
         
         ListNode ptrTwo = headPtr;
-        for (int i = length - n; i > 0; i--) {
+        for (int i = 0; i < length - n; i++) {
             ptrTwo = ptrTwo.next;
         }
         if (ptrTwo.next != null) ptrTwo.next = ptrTwo.next.next;
