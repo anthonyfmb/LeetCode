@@ -22,6 +22,7 @@ class Solution {
         for (int i = 0; i < length - n; i++) {
             ptrTwo = ptrTwo.next;
         }
+        
         if (ptrTwo.next != null) ptrTwo.next = ptrTwo.next.next;
         return headPtr.next;
     }
