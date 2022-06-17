@@ -23,6 +23,7 @@ public:
         for (int i = 0; i < length - n; i++) {
             ptr = ptr->next;
         }
+        
         ptr->next = ptr->next->next;
         return pre_head->next;
     }
