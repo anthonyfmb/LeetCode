@@ -14,6 +14,7 @@ public:
         ListNode *pre_head = new ListNode(0, head);
         ListNode *len_ptr = head;
         int length = 0;
+        
         while (len_ptr != NULL) {
             length++;
             len_ptr = len_ptr->next;
