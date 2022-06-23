@@ -11,11 +11,14 @@
 class Solution {
     public ListNode oddEvenList(ListNode head) {
         if (head == null) return head;
+        
         ListNode ptr = head;
         int index = 1;
         ListNode evenPtr = head.next;
+        
         while (ptr != null) {
             ListNode next = ptr.next;
+            
             if (ptr.next == null || ptr.next.next == null) {
                 if (index % 2 == 1 && index != 1) {
                     ptr.next = evenPtr;
@@ -27,6 +30,7 @@ class Solution {
             else {
                 ptr.next = ptr.next.next;
             }
+            
             ptr = next;
             index++;
         }
