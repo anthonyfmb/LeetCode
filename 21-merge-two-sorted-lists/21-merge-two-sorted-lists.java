@@ -13,41 +13,39 @@ class Solution {
         if (list1 == null) return list2;
         if (list2 == null) return list1;
 
-        ListNode firstPtr = list1;
-        ListNode secondPtr = list2;
         ListNode head = null;
         ListNode prev = null;
-        if (firstPtr.val < secondPtr.val) {
-            head = firstPtr;
+        if (list1.val < list2.val) {
+            head = list1;
             prev = head;
-            firstPtr = firstPtr.next;
+            list1 = list1.next;
         }
         else {
-            head = secondPtr;
+            head = list2;
             prev = head;
-            secondPtr = secondPtr.next;
+            list2 = list2.next;
         }
         
-        while (firstPtr != null || secondPtr != null) {
-            if (firstPtr == null) {
-                prev.next = secondPtr;
-                prev = secondPtr;
-                secondPtr = secondPtr.next;
+        while (list1 != null || list2 != null) {
+            if (list1 == null) {
+                prev.next = list2;
+                prev = list2;
+                list2 = list2.next;
             }
-            else if (secondPtr == null) {
-                prev.next = firstPtr;
-                prev = firstPtr;
-                firstPtr = firstPtr.next;
+            else if (list2 == null) {
+                prev.next = list1;
+                prev = list1;
+                list1 = list1.next;
             }
-            else if (firstPtr.val < secondPtr.val) {
-                prev.next = firstPtr;
-                prev = firstPtr;
-                firstPtr = firstPtr.next;
+            else if (list1.val < list2.val) {
+                prev.next = list1;
+                prev = list1;
+                list1 = list1.next;
             }
             else {
-                prev.next = secondPtr;
-                prev = secondPtr;
-                secondPtr = secondPtr.next;
+                prev.next = list2;
+                prev = list2;
+                list2 = list2.next;
             }
         }
         
