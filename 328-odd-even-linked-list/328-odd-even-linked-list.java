@@ -12,28 +12,18 @@ class Solution {
     public ListNode oddEvenList(ListNode head) {
         if (head == null) return head;
         
-        ListNode ptr = head;
-        int index = 1;
+        ListNode oddPtr = head;
         ListNode evenPtr = head.next;
+        ListNode evenHead = evenPtr;
         
-        while (ptr != null) {
-            ListNode next = ptr.next;
+        while (evenPtr != null && evenPtr.next != null) {
+            oddPtr.next = oddPtr.next.next;
+            evenPtr.next = evenPtr.next.next;
             
-            if (ptr.next == null || ptr.next.next == null) {
-                if (index % 2 == 1 && index != 1) {
-                    ptr.next = evenPtr;
-                }
-                else {
-                    if (ptr.next != null && index != 1) ptr.next = ptr.next.next;
-                }
-            }
-            else {
-                ptr.next = ptr.next.next;
-            }
-            
-            ptr = next;
-            index++;
+            oddPtr = oddPtr.next;
+            evenPtr = evenPtr.next;
         }
+        oddPtr.next = evenHead;
         
         return head;
     }
