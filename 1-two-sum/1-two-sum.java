@@ -8,8 +8,7 @@ class Solution {
                 pair[1] = map.get(nums[i]);
                 return pair;
             }
-            int opp = target - nums[i];
-            map.put(opp, i);
+            map.put(target - nums[i], i);
         }
         return null;
     }
