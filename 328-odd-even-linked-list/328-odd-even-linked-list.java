@@ -10,12 +10,11 @@
  */
 class Solution {
     public ListNode oddEvenList(ListNode head) {
+        if (head == null) return head;
         ListNode ptr = head;
         int index = 1;
-        ListNode evenPtr = null;
+        ListNode evenPtr = head.next;
         while (ptr != null) {
-            if (index == 2) evenPtr = ptr;
-
             ListNode next = ptr.next;
             if (ptr.next == null || ptr.next.next == null) {
                 if (index % 2 == 1 && index != 1) {
