@@ -18,7 +18,8 @@ public class Solution {
     
     private TreeNode InvertTreeHelper(TreeNode node, TreeNode root) {
         if (node == null) return root;
-        
+
+                
         TreeNode temp = node.left;
         node.left = node.right;
         node.right = temp;
