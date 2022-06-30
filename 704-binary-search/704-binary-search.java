@@ -1,9 +1,8 @@
 class Solution {
     public int search(int[] nums, int target) {
-        int length = nums.length;
-        int middleIndex = length / 2;
+        int middleIndex = nums.length / 2;
         int leftEdge = 0;
-        int rightEdge = length - 1;
+        int rightEdge = nums.length - 1;
         while (leftEdge <= rightEdge) {
             if (nums[middleIndex] == target) return middleIndex;
             else if (nums[middleIndex] < target) {
