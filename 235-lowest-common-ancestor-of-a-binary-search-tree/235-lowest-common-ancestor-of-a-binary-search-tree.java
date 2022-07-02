@@ -14,7 +14,7 @@ class Solution {
         TreeNode pPtr = root;
         TreeNode qPtr = root;
         
-        while (pPtr != p && qPtr != q) {
+        while (pPtr != p) {
             if (pPtr.val < p.val) {
                 pPtr = pPtr.right;
             }
