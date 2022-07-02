@@ -10,7 +10,6 @@
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        TreeNode common = root;
         TreeNode pPtr = root;
         TreeNode qPtr = root;
         
@@ -27,9 +26,9 @@ class Solution {
             else if (qPtr.val > q.val) {
                 qPtr = qPtr.left;
             }
-            if (pPtr == qPtr) common = pPtr;
+            if (pPtr == qPtr) root = pPtr;
         }
         
-        return common;
+        return root;
     }
 }
