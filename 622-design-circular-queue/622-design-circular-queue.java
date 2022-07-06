@@ -1,39 +1,59 @@
+class Node {
+    public int value;
+    public Node next;
+    
+    public Node(int value) {
+        this.value = value;
+        this.next = null;
+    }
+    public Node(int value, Node next) {
+        this.value = value;
+        this.next = next;
+    }
+}
+
 class MyCircularQueue {
-    int[] array;
-    int headIndex;
-    int totalAmount;
     int length;
+    int totalAmount;
+    Node headPtr;
+    Node tailPtr;
 
     public MyCircularQueue(int k) {
-        array = new int[k];
         length = k;
-        headIndex = 0;
         totalAmount = 0;
     }
     
     public boolean enQueue(int value) {
-        if (totalAmount == length) return false;
-        array[(headIndex + totalAmount) % length] = value;
+        if (length == totalAmount) return false;
+        if (totalAmount == 0) {
+            Node n = new Node(value);
+            headPtr = n;
+            tailPtr = n;
+        }
+        else {
+            Node n = new Node(value);
+            tailPtr.next = n;
+            tailPtr = n;
+        }
         totalAmount++;
         return true;
     }
     
     public boolean deQueue() {
         if (totalAmount == 0) return false;
-        if (headIndex + 1 == length) headIndex = 0;
-        else headIndex++;
+        headPtr = headPtr.next;
         totalAmount--;
         return true;
     }
     
     public int Front() {
         if (totalAmount == 0) return -1;
-        return array[headIndex];
+        return headPtr.value;
     }
     
     public int Rear() {
         if (totalAmount == 0) return -1;
-        return array[(headIndex + totalAmount - 1) % length];
+        return tailPtr.value;
     }
     
     public boolean isEmpty() {
