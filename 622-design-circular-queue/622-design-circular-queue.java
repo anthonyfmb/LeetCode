@@ -35,6 +35,7 @@ class MyCircularQueue {
             tailPtr.next = n;
             tailPtr = n;
         }
+        
         totalAmount++;
         return true;
     }
