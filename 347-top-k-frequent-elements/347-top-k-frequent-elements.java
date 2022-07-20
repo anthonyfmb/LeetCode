@@ -21,8 +21,7 @@ class Solution {
         
         int[] result = new int[k];
         int index = 0;
-        for (int i = list.length - 1; i >= 0; i--) {
-            if (index >= k) break;
+        for (int i = list.length - 1; index < k && i >= 0; i--) {
             if (list[i] != null) {
                 for (int j = 0; j < list[i].size(); j++) {
                     result[index] = list[i].get(j);
