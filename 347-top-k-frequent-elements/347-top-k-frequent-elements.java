@@ -1,8 +1,6 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        if (k == nums.length) {
-            return nums;
-        }
+        if (k == nums.length) return nums;
         
         HashMap<Integer, Integer> map = new HashMap<>();
         List<Integer>[] list = new List[nums.length + 1];
@@ -21,6 +19,7 @@ class Solution {
         
         int[] result = new int[k];
         int index = 0;
+
         for (int i = list.length - 1; index < k && i >= 0; i--) {
             if (list[i] != null) {
                 for (int j = 0; j < list[i].size(); j++) {
@@ -29,6 +28,7 @@ class Solution {
                 }
             }
         }
+
         return result;
     }
 }
